@@ -14,6 +14,7 @@ Demo a CRUD RestFul API :
  
 # Detail
 Host: localhost:8080/api
+
     - GET - /topics 
     - GET - /topics/{id}
     - POST - /topics/create
