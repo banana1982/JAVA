@@ -1,1 +1,1 @@
-web: java -jar target/RestFulAPIDemo-1.0-SNAPSHOT.jar dev.jetty.api.Main
+web: java -jar target/RestFulAPIDemo-1.0-SNAPSHOT.jar
