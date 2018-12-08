@@ -14,7 +14,7 @@ public class API {
 
     @GET
     @Path("/topics")
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    @Produces(MediaType.APPLICATION_JSON)
     public String getListTopicJSON() throws Exception {
         Body body = new Body();
         try {
@@ -94,7 +94,7 @@ public class API {
 
     @GET
     @Path("/topics/{ID}")
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    @Produces(MediaType.APPLICATION_JSON)
     public String getDetailTopicJSON(@PathParam("ID") String ID) throws Exception{
         Body body;
         try {
@@ -117,7 +117,7 @@ public class API {
 
     @GET
     @Path("/topics/search")
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    @Produces(MediaType.APPLICATION_JSON)
     public String searchTopicJSON(@QueryParam("content") String content, @QueryParam("date") String date, @QueryParam("create_by") String create_by) throws Exception{
         Map<String, Topic> topicTempMap = new HashMap<String, Topic>();
         Body body;
