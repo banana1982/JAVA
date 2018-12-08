@@ -23,13 +23,34 @@
 
     <build>
         <plugins>
+            <!-- Maven Assembly Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4.1</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <!-- get all project dependencies -->
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <!-- MainClass in mainfest make a executable jar -->
+                    <archive>
+                        <manifest>
+                            <mainClass>dev.jetty.api.Main</mainClass>
+                        </manifest>
+                    </archive>
+
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <!-- bind to the packaging phase -->
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
@@ -44,12 +65,12 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>hello.Main</mainClass>
+                    <mainClass>dev.jetty.api.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-    
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
